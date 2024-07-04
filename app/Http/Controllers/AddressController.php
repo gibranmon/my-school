@@ -10,14 +10,14 @@ class AddressController extends Controller
 {
     public function studentsAddresses()
     {
-        $students = Student::with('direction')->get();
+        $students = Student::with('direction')->paginate(5);
 
         return view('students.addresses', compact('students'));
     }
 
     public function teachersAddresses()
     {
-        $teachers = Teacher::with('direction')->get();
+        $teachers = Teacher::with('direction')->paginate(3);
 
         return view('teachers.addresses', compact('teachers'));
     }
