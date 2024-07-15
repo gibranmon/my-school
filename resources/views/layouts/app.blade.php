@@ -29,7 +29,14 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                <div class="container space-y-12 mx-auto">
+                    <div class="rounded-lg shadow-md px-8 mt-4 grid justify-items-center">
+                        @include('fragments.errors-form')
+                        @include('fragments.message-form')
+
+                        {{ $slot }}
+                    </div>
+                </div>
             </main>
         </div>
     </body>
