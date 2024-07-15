@@ -20,4 +20,14 @@ class Student extends Model
     {
         return $this->morphOne(Direction::class, 'directionable');
     }
+
+    public function enrollments()
+    {
+        return $this->morphMany(Enrollment::class, 'enrollable');
+    }
+
+    public function courses()
+    {
+        return $this->morphToMany(Course::class, 'enrollable', 'enrollments');
+    }
 }
