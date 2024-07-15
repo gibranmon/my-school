@@ -11,7 +11,7 @@
                 <div class="overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
                         <div class="text-2xl">
-                            Direcciones de Alumnos
+                            Listado de Alumnos
                         </div>
                     </div>
                     <div class="p-6 sm:px-20 bg-white border-b border-gray-200">

@@ -1,4 +1,10 @@
 <div class="col-span-full mb-5">
+    <span class="stylesButtonShow inline-block rounded-full mt-3 px-3 py-1 text-sm font-semibold text-gray-700 mb-2">
+        <a class="" href="{{ route('student.index', $student->id) }}">Volver</a>
+    </span>
+</div>
+
+<div class="col-span-full mb-5">
     <label class="stylesLabel" for="name">Nombre</label>
     <input class="stylesInput" type="text" name="name" value="{{ old('name' , $student->name) }}">
 </div>
@@ -36,8 +42,4 @@
 <div class="col-span-full mb-5">
     <label class="stylesLabel" for="state">Estado</label>
     <input class="stylesInput" type="text" name="state" value="{{ old('state' , isset($student->direction->state) ? $student->direction->state : '') }}">
-</div>
-
-<div class="col-span-full mb-5">
-    <a class="stylesButtonFromA stylesButtonShow" href="{{ route('addresses.students', $student->id) }}">Volver</a>
 </div>

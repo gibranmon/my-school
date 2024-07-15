@@ -15,7 +15,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        
+        $students = Student::with('direction')->paginate(5);
+
+        return view('students.addresses', compact('students'));
     }
 
     /**
@@ -24,7 +26,7 @@ class StudentController extends Controller
     public function create()
     {
         $student = new Student();
-        
+
         return view('students.create', compact('student'));
     }
 

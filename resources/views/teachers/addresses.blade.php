@@ -5,15 +5,19 @@
         </h2>
     </x-slot>
     
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
+    <div class="p-6 text-gray-900">
+        <div class="py-2">
+            <div class="max-w-7xl mx-auto">
+                <div class="overflow-hidden shadow-xl sm:rounded-lg">
+                    <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
                     <div class="text-2xl">
-                        Direcciones de Maestros
+                        Listado de Maestros
                     </div>
                 </div>
                 <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
+                    <div class="mb-7">
+                        <a href="{{ route('teacher.create') }}" target="_blank" class="stylesButtonFromA stylesTolinkToNew">Capturar docente</a>
+                    </div>
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
                             <tr>
@@ -43,6 +47,25 @@
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     {{ optional($teacher->direction)->line_one }} / {{ optional($teacher->direction)->line_two }}
                                 </td>
+                                <td>
+                                    <div class="grid grid-rows-1 grid-flow-col gap-4">
+                                        <div class="self-center">
+                                            <a class="stylesButtonFromA stylesButtonEdit"
+                                            href="{{ route('teacher.edit', $teacher->id) }}">Editar</a>
+                                        </div>
+                                        <div class="self-center">
+                                            <a class="stylesButtonFromA stylesButtonShow"
+                                            href="{{ route('teacher.show', $teacher->id) }}">Mostrar</a>
+                                        </div>
+                                        <div class="self-center">
+                                            <form action="{{ route('teacher.destroy', $teacher->id) }}" method="post">
+                                                @method('delete')
+                                                @csrf
+                                                <button class="stylesButtonFromA stylesButtonDelete" type="submit">Eliminar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -54,4 +77,5 @@
             </div>
         </div>
     </div>
+</div>
 </x-app-layout>

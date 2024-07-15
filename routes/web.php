@@ -3,6 +3,7 @@
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -29,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/addresses/teachers', [AddressController::class, 'teachersAddresses'])->name('addresses.teachers');
 
     Route::resource('student', StudentController::class);
+    Route::resource('teacher', TeacherController::class);
 });
 
 require __DIR__.'/auth.php';

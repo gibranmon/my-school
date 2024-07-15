@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Student;
+namespace App\Http\Requests\Teacher;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,10 +24,10 @@ class PatchRequest extends FormRequest
         return [
             'name' => 'required|min:5|max:50',
             'last_name' => 'required|min:5|max:50',
-            'age' => 'required|integer',
-            'school_grade' => 'required|min:5|max:255',
+            'phone_number' => 'required|min:10|max:10',
+            'professional_license' => 'required|max:8|unique:teachers,professional_license,' . $this->route('teacher')->id,
+            'email' => 'required|email|unique:teachers,email,' . $this->route('teacher')->id,
             'line_one' => 'required|min:5|max:50',
-            'line_two' => 'required|min:5|max:50',
             'postal_code' => 'required|min:5|max:5',
             'state' => 'required|min:5|max:50'
         ];
