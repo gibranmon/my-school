@@ -11,9 +11,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/', function () {
-//     return view('vue');
-// });
+Route::get('/students/vue', function () {
+    return view('vue');
+})->name('students.vue');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
