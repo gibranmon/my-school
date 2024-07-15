@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class AddressController extends Controller
 {
+    public function studentsAddressesList()
+    {
+        $students = Student::with('direction')->paginate(5);
+
+        return response()->json($students);
+    }
+
     public function studentsAddresses()
     {
         $students = Student::with('direction')->paginate(5);

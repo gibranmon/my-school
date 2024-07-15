@@ -4,8 +4,12 @@ use App\Http\Controllers\AddressController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('vue');
 });
 
 Route::get('/dashboard', function () {
@@ -20,6 +24,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/addresses/students', [AddressController::class, 'studentsAddresses'])->name('addresses.students');
+    Route::get('/addresses/students/list', [AddressController::class, 'studentsAddressesList'])->name('addresses.students.list');
     Route::get('/addresses/teachers', [AddressController::class, 'teachersAddresses'])->name('addresses.teachers');
 });
 
